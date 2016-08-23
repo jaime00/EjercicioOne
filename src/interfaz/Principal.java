@@ -27,38 +27,103 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        txtLongitud = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        cmdSuma = new javax.swing.JButton();
+        cmdProductoria = new javax.swing.JButton();
+        cmdNumeroMayor = new javax.swing.JButton();
+        cmdNumeroMenor = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtResultado = new javax.swing.JTextArea();
+        jPanel3 = new javax.swing.JPanel();
+        cmdCrear = new javax.swing.JButton();
+        cmdLlenarManual = new javax.swing.JButton();
+        cmdLlenarAutomaticamente = new javax.swing.JButton();
+        cmdBorrarr = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 463, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 383, Short.MAX_VALUE)
-        );
+        jPanel2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        jLabel1.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
+        jLabel1.setText("EJERCICIO 1");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Datos Iniciales"));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setText("Longitud:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+        jPanel1.add(txtLongitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 60, -1));
+
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 190, 110));
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Operaciones"));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cmdSuma.setText("Suma");
+        jPanel4.add(cmdSuma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 130, -1));
+
+        cmdProductoria.setText("Productoria");
+        jPanel4.add(cmdProductoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 130, -1));
+
+        cmdNumeroMayor.setText("Numero mayor");
+        jPanel4.add(cmdNumeroMayor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 130, -1));
+
+        cmdNumeroMenor.setText("Numero menor");
+        jPanel4.add(cmdNumeroMenor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 130, -1));
+
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 190, 230));
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Resultado"));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtResultado.setEditable(false);
+        txtResultado.setColumns(20);
+        txtResultado.setRows(5);
+        jScrollPane1.setViewportView(txtResultado);
+
+        jPanel5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 20, 180, 120));
+
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 210, 160));
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Opciones"));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cmdCrear.setText("Crear");
+        jPanel3.add(cmdCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, -1));
+
+        cmdLlenarManual.setText("Llenar Manual");
+        jPanel3.add(cmdLlenarManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 130, -1));
+
+        cmdLlenarAutomaticamente.setText("Llenar Automaticamente");
+        jPanel3.add(cmdLlenarAutomaticamente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 130, -1));
+
+        cmdBorrarr.setText("Borrar");
+        cmdBorrarr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrarrActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cmdBorrarr, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 130, -1));
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 210, 180));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmdBorrarrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarrActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmdBorrarrActionPerformed
 
     /**
      * @param args the command line arguments
@@ -96,6 +161,23 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cmdBorrarr;
+    private javax.swing.JButton cmdCrear;
+    private javax.swing.JButton cmdLlenarAutomaticamente;
+    private javax.swing.JButton cmdLlenarManual;
+    private javax.swing.JButton cmdNumeroMayor;
+    private javax.swing.JButton cmdNumeroMenor;
+    private javax.swing.JButton cmdProductoria;
+    private javax.swing.JButton cmdSuma;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtLongitud;
+    private javax.swing.JTextArea txtResultado;
     // End of variables declaration//GEN-END:variables
 }
