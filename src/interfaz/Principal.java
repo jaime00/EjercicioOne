@@ -5,6 +5,8 @@
  */
 package interfaz;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jaime
@@ -14,8 +16,11 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
+    double v[];
+    
     public Principal() {
         initComponents();
+        txtLongitud.requestFocusInWindow();
     }
 
     /**
@@ -54,30 +59,56 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
         jLabel1.setText("EJERCICIO 1");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Datos Iniciales"));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("Longitud:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+
+        txtLongitud.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtLongitudKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtLongitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 60, -1));
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 190, 110));
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Operaciones"));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Calcular"));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cmdSuma.setText("Suma");
+        cmdSuma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdSumaActionPerformed(evt);
+            }
+        });
         jPanel4.add(cmdSuma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 130, -1));
 
         cmdProductoria.setText("Productoria");
+        cmdProductoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdProductoriaActionPerformed(evt);
+            }
+        });
         jPanel4.add(cmdProductoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 130, -1));
 
         cmdNumeroMayor.setText("Numero mayor");
+        cmdNumeroMayor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdNumeroMayorActionPerformed(evt);
+            }
+        });
         jPanel4.add(cmdNumeroMayor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 130, -1));
 
         cmdNumeroMenor.setText("Numero menor");
+        cmdNumeroMenor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdNumeroMenorActionPerformed(evt);
+            }
+        });
         jPanel4.add(cmdNumeroMenor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 130, -1));
 
         jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 190, 230));
@@ -98,12 +129,27 @@ public class Principal extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cmdCrear.setText("Crear");
+        cmdCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCrearActionPerformed(evt);
+            }
+        });
         jPanel3.add(cmdCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 130, -1));
 
         cmdLlenarManual.setText("Llenar Manual");
+        cmdLlenarManual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdLlenarManualActionPerformed(evt);
+            }
+        });
         jPanel3.add(cmdLlenarManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 130, -1));
 
         cmdLlenarAutomaticamente.setText("Llenar Automaticamente");
+        cmdLlenarAutomaticamente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdLlenarAutomaticamenteActionPerformed(evt);
+            }
+        });
         jPanel3.add(cmdLlenarAutomaticamente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 130, -1));
 
         cmdBorrarr.setText("Borrar");
@@ -122,9 +168,99 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdBorrarrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarrActionPerformed
-        // TODO add your handling code here:
+
+        txtLongitud.setText("");
+        txtResultado.setText("");
+        
+        txtLongitud.requestFocusInWindow();
+        v=null;
     }//GEN-LAST:event_cmdBorrarrActionPerformed
 
+    private void txtLongitudKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLongitudKeyTyped
+
+        char c=evt.getKeyChar(); 
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+              evt.consume(); 
+          } 
+    }//GEN-LAST:event_txtLongitudKeyTyped
+
+    private void cmdCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCrearActionPerformed
+        int longitud;
+        if(txtLongitud.getText().trim().isEmpty()){
+            JOptionPane.showConfirmDialog(this, "Digite la longitud","ERROR",JOptionPane.INFORMATION_MESSAGE);
+            txtLongitud.requestFocusInWindow();
+        }else if(Integer.parseInt(txtLongitud.getText().trim())==0){
+            JOptionPane.showMessageDialog(this,"no se puede digitar cero en la longitud");
+            txtLongitud.requestFocusInWindow();
+            txtLongitud.selectAll();
+        }else{
+            longitud=Integer.parseInt(txtLongitud.getText());
+            v= new double [longitud]; 
+            JOptionPane.showMessageDialog(this, "Vector creado exitosamente");
+        }
+    }//GEN-LAST:event_cmdCrearActionPerformed
+
+    private void cmdLlenarManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenarManualActionPerformed
+        double n;
+        for (int i = 0; i < v.length; i++) {
+        n=Double.parseDouble(JOptionPane.showInputDialog("Digite el elemento (pos."+i+")"));
+        v[i]=n;
+        
+        }
+        JOptionPane.showMessageDialog(this, "Vector llenado correctamente");
+    }//GEN-LAST:event_cmdLlenarManualActionPerformed
+    
+    private void cmdLlenarAutomaticamenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenarAutomaticamenteActionPerformed
+        double n;
+        for (int i = 0; i < v.length; i++) {
+             n=(int)(Math.random()*50+ 1);
+            v[i]=n;            
+        }
+        JOptionPane.showMessageDialog(this,"Vector llenado automaticamente correcto");
+    }//GEN-LAST:event_cmdLlenarAutomaticamenteActionPerformed
+
+    private void cmdSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSumaActionPerformed
+        double suma=0,n;
+        for (int i = 0; i < v.length; i++) {
+            n=v[i];
+            suma=suma+v[i];
+        }
+        txtResultado.append(""+suma);
+        
+    }//GEN-LAST:event_cmdSumaActionPerformed
+
+    private void cmdProductoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdProductoriaActionPerformed
+        double n,prod=1;
+        for (int i = 0; i < v.length; i++) {
+            n = v[i];
+            prod=prod*v[i];
+        }
+        txtResultado.append("\n"+prod); 
+    }//GEN-LAST:event_cmdProductoriaActionPerformed
+
+    private void cmdNumeroMayorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdNumeroMayorActionPerformed
+
+     double mayor=v[0];
+    for (int i = 0; i <v.length; i++) {
+         if(v[i]>mayor)
+             mayor=v[i];
+            }
+    txtResultado.append("\n El numero mayor es "+mayor);
+    
+    
+    }//GEN-LAST:event_cmdNumeroMayorActionPerformed
+
+    private void cmdNumeroMenorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdNumeroMenorActionPerformed
+        double menor=v[0];
+        for (int i = 0; i < v.length; i++) {
+            menor=v[0];
+            if(v[i]<menor)
+             menor=v[i];  
+        }
+        txtResultado.append("\n El numero menor es "+menor);
+    }//GEN-LAST:event_cmdNumeroMenorActionPerformed
+                                                // []
     /**
      * @param args the command line arguments
      */
